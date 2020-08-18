@@ -1,0 +1,32 @@
+﻿@page "/"
+@using MatBlazor
+
+    <MatSelect Id="firstSelect" Label="400px wide Select" Value="@firstValue" Style="width: 400px;">
+        @foreach (var weekDay in (WeekDays[])Enum.GetValues(typeof(WeekDays)))
+        {
+            <MatOptionString Value="@weekDay.ToString()">@weekDay.ToString()</MatOptionString>
+        }
+    </MatSelect>
+
+    <MatSelect Id="secondSelect" Label="700px wide Select" Value="@secondValue" Style="width: 700px;">
+        @foreach (var weekDay in (WeekDays[])Enum.GetValues(typeof(WeekDays)))
+        {
+            <MatOptionString Value="@weekDay.ToString()">@weekDay.ToString()</MatOptionString>
+        }
+    </MatSelect>
+
+@code {
+    private string firstValue = "Monday";
+    private string secondValue = "Tuesday";
+
+    enum WeekDays
+    {
+        Monday,
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday,
+        Sunday
+    }
+}
